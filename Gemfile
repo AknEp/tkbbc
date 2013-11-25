@@ -24,6 +24,7 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'spring'
   gem "spring-commands-rspec"
+  gem 'travis'
 end
 
 # Use jquery as the JavaScript library
