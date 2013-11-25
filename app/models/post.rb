@@ -1,5 +1,6 @@
 # encoding: utf-8
 
 class Post < ActiveRecord::Base
-  validates :body, length: {maximum: 1000}
+  BODY_MAX_LEN = 1000
+  validates :body, length: {maximum: BODY_MAX_LEN}
 end
