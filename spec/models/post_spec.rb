@@ -39,4 +39,16 @@ describe Post do
     end
 
   end
+
+  describe "#destroy" do
+    before(:each) do
+      @post = Post.create(body: 'hoge')
+    end
+
+    it "should be decremented count when " do
+      expect{@post.destroy}.to change{Post.count}.by(-1)
+    end
+
+  end
+
 end
