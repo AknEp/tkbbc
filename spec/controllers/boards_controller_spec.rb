@@ -87,14 +87,14 @@ describe BoardsController do
       it "assigns a newly created but unsaved board as @board" do
         # Trigger the behavior that occurs when invalid params are submitted
         Board.any_instance.stub(:save).and_return(false)
-        post :create, {:board => {  }}, valid_session
+        post :create, {:board => { :unko => 'unko' }}, valid_session
         assigns(:board).should be_a_new(Board)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Board.any_instance.stub(:save).and_return(false)
-        post :create, {:board => {  }}, valid_session
+        post :create, {:board => { :unko => 'unko' }}, valid_session
         response.should render_template("new")
       end
     end
@@ -130,7 +130,7 @@ describe BoardsController do
         board = Board.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Board.any_instance.stub(:save).and_return(false)
-        put :update, {:id => board.to_param, :board => {  }}, valid_session
+        put :update, {:id => board.to_param, :board => { :unko => 'unko' }}, valid_session
         assigns(:board).should eq(board)
       end
 
@@ -138,7 +138,7 @@ describe BoardsController do
         board = Board.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Board.any_instance.stub(:save).and_return(false)
-        put :update, {:id => board.to_param, :board => {  }}, valid_session
+        put :update, {:id => board.to_param, :board => { :unko => 'unko'  }}, valid_session
         response.should render_template("edit")
       end
     end
