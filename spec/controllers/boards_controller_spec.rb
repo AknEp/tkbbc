@@ -24,7 +24,7 @@ describe BoardsController do
   # Board. As you add validations to Board, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) { {
-      #title: 'hoge'
+      title: 'hoge'
   } }
 
   # This should return the minimal set of values that should be in the session
@@ -108,8 +108,8 @@ describe BoardsController do
         # specifies that the Board created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Board.any_instance.should_receive(:update).with({ "these" => "params" })
-        put :update, {:id => board.to_param, :board => { "these" => "params" }}, valid_session
+        Board.any_instance.should_receive(:update).with({ "title" => "unko" })
+        put :update, {:id => board.to_param, :board => { "title" => "unko" }}, valid_session
       end
 
       it "assigns the requested board as @board" do

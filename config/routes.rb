@@ -26,6 +26,8 @@ Tkbbc::Application.routes.draw do
   #     end
   #   end
 
+  resources :boards
+
   # Example resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales
