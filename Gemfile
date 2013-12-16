@@ -25,6 +25,7 @@ group :development, :test do
   gem 'spring'
   gem "spring-commands-rspec"
   gem 'travis'
+  gem 'webrat'
 end
 
 # Use jquery as the JavaScript library
