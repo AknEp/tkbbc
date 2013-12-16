@@ -6,4 +6,6 @@
         - @board.errors.full_messages.each do |message|
           li = message
 
+  = f.text_field :title
+
   .actions = f.submit 'Save'
