@@ -10,8 +10,8 @@ describe "boards/new" do
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "form[action=?][method=?]", boards_path, "post" do
-      assert_select "input", name: "board[title]"
-      assert_select "input", type: :submit
+      assert_select "input[name=?]", "board[title]"
+      assert_select "input[type=?]", :submit
     end
   end
 end
