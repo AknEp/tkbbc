@@ -6,22 +6,19 @@ describe "boards/edit" do
 
   before(:each) do
     @board = assign(:board, stub_model(Board, title: title ))
+    # TODO: ランダムで値を入れる手段はないだろうか？
+
+    render
   end
 
-  it "renders the edit board form" do
-    render
-
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form[action=?][method=?]", board_path(@board), "post" do |form_elements|
-      assert_select "input[name=?][value=?]", "board[title]", @board.title do |elements|
-        elements.each do |element|
-          form_elements.each do |form_element|
-            assert_select form_element, "label[for=?]", element.attributes["id"]
-          end
-        end
+  it "form exists" do
+    rendered.should have_selector("form", action: board_path(@board), method: "post" ) do |form|
+      form.should have_selector("input", name: "board[title]", count: 1) do |title_input|
+        title_input.first["value"].should eq(@board.title)
+        form.should have_selector("label", for: title_input.first["id"], count: 1)
       end
-      assert_select "input[type=?]", :submit
-      #assert_select "label[for=?]", "board_title"
+      form.should have_selector("input", type: "submit")
     end
   end
+
 end
